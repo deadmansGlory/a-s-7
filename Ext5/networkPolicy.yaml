@@ -5,11 +5,17 @@ metadata:
 spec:
   policyTypes:
     - Ingress
+    - Egress
   podSelector:
     matchLabels:
       role: back-end-api
   ingress:
   - from:
+    - podSelector:
+        matchLabels:
+          app: front-end
+  egress:
+  - to:
     - podSelector:
         matchLabels:
           app: front-end
