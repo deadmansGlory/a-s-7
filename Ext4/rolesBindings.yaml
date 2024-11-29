@@ -1,0 +1,45 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: admin-binding
+  namespace: default
+subjects:
+  - kind: User
+    name: administrator
+    apiGroup: ""
+roleRef:
+  kind: ClusterRole
+  name: admins
+  apiGroup: ""
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: developer-binding
+  namespace: default
+subjects:
+  - kind: User
+    name: developer
+    apiGroup: ""
+roleRef:
+  kind: ClusterRole
+  name: editors
+  apiGroup: ""
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: viewer-binding
+  namespace: default
+subjects:
+  - kind: User
+    name: viewer
+    apiGroup: ""
+roleRef:
+  kind: ClusterRole
+  name: viewers
+  apiGroup: ""
